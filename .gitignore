@@ -1,0 +1,4 @@
+.DS_Store
+./admin-web/node_modules
+./client-web/node_modules
+./server/node_modules

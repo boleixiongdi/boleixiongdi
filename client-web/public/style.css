@@ -1,0 +1,178 @@
+body{
+  background: #71afdb;
+}
+
+.cb{
+  clear: both;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #fff;
+}
+
+.bl-container{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header{
+  width: 100%;
+  height: 60px;
+  margin-top: 20px;
+}
+
+.active{
+  background: #444;
+  color: #fff ! important;
+}
+
+.tab-item{
+  transition: background-color .25s ease-in-out;
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  color: #696969;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 0.5em 1em 0.5em 1em;
+  cursor: pointer;
+}
+
+.wrap{
+  width: 600px;
+  margin: 0 auto;
+  color: #fcfcfc;
+}
+h1{
+  margin-bottom: 15px;
+}
+
+.logo{
+  float: left;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  background: #03899c;
+  border-radius: 6px;
+  line-height: 60px;
+  font-size: 28px;
+}
+
+.bl_nav{
+  width: 400px;
+  float: right;
+  height: 60px;
+  line-height: 60px;
+  text-align: right;
+}
+
+.bl_nav ul li{
+  display: inline-block;
+}
+
+.content{
+  margin-top: 20px;
+}
+
+.article{
+  background: #03899c;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.article-abstrat{
+
+}
+
+.article-foot{
+  text-align: right;
+  text-align: right;
+  padding-top: 5px;
+  font-size: 12px;
+  border-top: 1px dashed #fcfcfc;
+}
+
+.green{
+  color: #76d37c
+}
+
+.footer{
+  background: #03899c;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content-bg{
+  background: #03899c;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.login{
+  text-align: center;
+  padding: 30px;
+}
+
+.bl-btn{
+  display: inline-block;
+  padding: 3px 12px;
+  background: #444;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.login-input{
+  display: block;
+  width: 200px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #fcfcfc;
+}
+
+.pd20{
+  padding: 20px;
+}
+
+.mt20{
+  margin-top: 20px;
+}
+
+.mb20{
+  margin-bottom: 20px;
+}
+
+.search-input{
+  border: 1px solid #fcfcfc;
+  border-radius: 5px;
+  padding: 3px 5px;
+  outline: none;
+  color: #333;
+  width: 540px;
+  margin-right: 10px;
+}
+
+.search-btn{
+  border: 1px solid #fcfcfc;
+  border-radius: 5px;
+  padding: 3px 5px;
+  outline: none;
+  color: #333;
+  background: #fcfcfc;
+  color: #36bbce;
+  cursor: pointer;
+}
