@@ -53,6 +53,8 @@ function receiveLogout() {
 export function loginUser(creds, cbk) {
   return dispatch => {
     dispatch(requestLogin(creds));
+    console.log(creds);
+    console.log(JSON.stringify(creds));
     cFetch(API_CONFIG.auth, { method: "POST", body: JSON.stringify(creds) }).then((response) => {
       if (response.jsonResult.error_code === 4001) {
         dispatch(loginError(response.jsonResult.error_message));
