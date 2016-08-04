@@ -7,6 +7,12 @@ import * as ItemsActions from '../../actions/actions'
 
 class Header extends Component {
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    console.log(this.props);
+    console.log("Header---componentWillReceiveProps");
+  }
+
   render() {
     const {isAuthenticated} = this.props
     return (

@@ -5,6 +5,7 @@ import { push } from 'react-router-redux';
 import * as ItemsActions from '../../actions/actions'
 import MyCenter from '../MyCenter/MyCenter'
 
+
 class Login extends Component {
 
   constructor(props) {
@@ -13,6 +14,21 @@ class Login extends Component {
   componentDidMount() {
     console.log("this.props");
     console.log(this.props);
+  }
+
+  componentWillUpdate(nextProps, nextState){
+      console.log(this.props.isAuthenticated);
+      console.log("sds");
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log(this.props.isAuthenticated);
+    console.log("sds");
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log(this.props.isAuthenticated);
+    console.log("sds");
   }
 
   render() {
@@ -34,18 +50,12 @@ class Login extends Component {
   }
 
   handleClick(event) {
-    console.log(event);
     const username = this.refs.username
     const password = this.refs.password
-    console.log(username);
-    console.log(password);
     const creds = { username: username.value.trim(), password: password.value.trim() }
     console.log(creds);
-    console.log(this.props);
-    console.log(this.store);
-    console.log(this.props.dispatch);
     this.props.actions.loginUser(creds);
-    this.props.history.push('/mycenter');
+    //this.props.history.push('/mycenter');
   }
 }
 

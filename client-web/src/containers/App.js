@@ -20,6 +20,19 @@ class App extends Component {
       console.log(this.props);
     }
 
+    componentWillReceiveProps(nextProps) {
+      console.log(nextProps);
+      console.log(this.props);
+      console.log("app---componentWillReceiveProps");
+      if (!this.props.auth.isAuthenticated && nextProps.auth.isAuthenticated) {
+        console.log('登录成功后跳转');
+        this.props.history.push('mycenter');
+      }else if (this.props.auth.isAuthenticated && !nextProps.auth.isAuthenticated) {
+        console.log('退出后跳转');
+        this.props.history.push('/');
+      }
+    }
+
     render() {
         const { props: { children } } = this;
         return (
