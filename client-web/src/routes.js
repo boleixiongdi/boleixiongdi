@@ -9,13 +9,22 @@ import Register from './components/Register/Register'
 import AboutUs from './components/AboutUs/AboutUs'
 import MyCenter from './components/MyCenter/MyCenter'
 
+const isAuth= (nextState, replace) => {
+    console.info('routerenter', nextState)
+    var isLogin = localStorage.getItem('id_token') ? true : false;
+    console.info("login flag",isLogin);
+    if (!isLogin) {
+      replace('/login');
+    }
+}
+
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register}/>
     <Route path="/about" component={AboutUs}/>
-    <Route path="/mycenter" component={MyCenter}/>
+    <Route onEnter={isAuth} path="/mycenter" component={MyCenter}/>
   </Route>
 )
 
