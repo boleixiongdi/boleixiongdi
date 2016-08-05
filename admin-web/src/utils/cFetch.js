@@ -108,7 +108,8 @@ function cFetch(url, options) {
 
   opts.headers = {
     ...opts.headers,
-    'Authorization': cookie.get('access_token') || ''
+    'Authorization': cookie.get('access_token') || '',
+    'Content-Type': 'application/json'
   };
 
   return fetch(mergeUrl, opts)

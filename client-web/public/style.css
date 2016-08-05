@@ -176,3 +176,15 @@ h1{
   color: #36bbce;
   cursor: pointer;
 }
+
+.mycenter-nav{
+  text-align: right;
+}
+
+.mycenter-nav ul li{
+  display: inline-block;
+}
+
+.myc-active{
+  color: #fff;
+}

@@ -92,11 +92,12 @@ app.post('/sessions/create', function(req, res) {
 });
 
 app.post('/api/admin/v1/auth', function(req, res) {
-
-  var user = "user"
-  res.status(201).send({
-    access_token: createToken(user)
-  });
+	console.log(req)
+	console.log(req.body)
+	var user = "user"
+	res.status(201).send({
+		access_token: createToken(user)
+	});
 });
 
 app.get('/api/admin/v1/users', function(req, res) {

@@ -71,6 +71,9 @@ class Header extends Component {
 
   onLogoutClick() {
     this.props.actions.logoutUser()
+    console.log('context plain');
+    console.log(this.context);
+    //this.context.router.push('/');
     this.props.history.push('/');
   }
 

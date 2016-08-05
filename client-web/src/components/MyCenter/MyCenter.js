@@ -3,16 +3,104 @@ import { Link, IndexLink, browserHistory  } from 'react-router'
 
 export default class MyCenter extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isArticles: true,
+      other:'',
+      articleActive: 'myc-active',
+      messageActive: '',
+      postActive: ''
+    };
+    this.showArticle = this.showArticle.bind(this);
+    this.showMessage = this.showMessage.bind(this);
+    this.showPost = this.showPost.bind(this);
+  }
+
+  showArticle() {
+    this.setState(
+      {
+        isArticles: true,
+        articleActive: 'myc-active',
+        messageActive: '',
+        postActive: ''
+      }
+    )
+  }
+
+  articles() {
+    return (
+      <div className="ant-layout-aside">
+        <h3>已发表文章</h3>
+        <div>
+          <div>文章列表</div>
+        </div>
+      </div>
+    );
+  }
+
+  showMessage(){
+    console.log(this.messages())
+    this.setState(
+      {
+        isArticles: false,
+        other:this.messages(),
+        articleActive: '',
+        messageActive: 'myc-active',
+        postActive: ''
+      }
+    )
+    console.log("this.state.other");
+    console.log(this.state.other);
+  }
+
+  messages() {
+    return (
+      <div className="ant-layout-aside">
+        <h3>我的消息</h3>
+        <div>
+          <div>消息列表</div>
+        </div>
+      </div>
+    );
+  }
+
+  showPost() {
+    this.setState(
+      {
+        isArticles: false,
+        other:this.post(),
+        articleActive: '',
+        messageActive: '',
+        postActive: 'myc-active'
+      }
+    )
+  }
+
+  post(){
+    return (
+      <div className="ant-layout-aside">
+        <h3>写文章</h3>
+        <div>
+          <div>写文章界面</div>
+        </div>
+      </div>
+    );
+  }
+
   render () {
     return (
       <div className="content-bg pd20">
-        <h3>个人中心</h3>
-        <div>世俗里的乌托邦，一群大爱无私，有梦想的人的聚集地</div>
+        <div className="mycenter-nav">
+          <ul>
+            <li><a className={this.state.articleActive+" tab-item"} onClick={this.showArticle}>文章</a></li>
+            <li><a className={this.state.messageActive+" tab-item"} onClick={this.showMessage}>消息</a></li>
+            <li><a className={this.state.postActive+" tab-item"} onClick={this.showPost}>写文章</a></li>
+          </ul>
+        </div>
+        <div>{this.state.isArticles ? this.articles() : this.state.other }</div>
       </div>
     )
   }
 
-  constructor (props) {
-    super(props)
-  }
 }
