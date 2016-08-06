@@ -18,8 +18,11 @@ class App extends Component {
     super(props);
     this.renderAuthenticatedPage = this.renderAuthenticatedPage.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
+    this.onToggle = this.onToggle.bind(this);
     this.state = {
-      collapse: false
+      collapse: false,
+      current: '1',
+      openKeys: ['sub1']
     };
   }
 
@@ -32,13 +35,24 @@ class App extends Component {
     dispatch(logoutUser());
   }
 
+  onToggle(info) {
+    this.setState({
+      openKeys: info.open ? info.keyPath : info.keyPath.slice(1),
+    });
+  }
+
   renderAuthenticatedPage() {
     return (
       <div className="ant-layout-aside">
         <aside className="ant-layout-sider">
           <div className="ant-layout-logo"></div>
-          <Menu mode="inline" theme="dark"
-            defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
+          <Menu mode="inline"
+            theme="dark"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            openKeys={this.state.openKeys}
+            onOpen={this.onToggle}
+            onClose={this.onToggle}>
             <SubMenu key="sub1" title={<span><Icon type="user" />用户管理</span>}>
               <Menu.Item key="1">
                 <Link to={'/users'}>
@@ -46,6 +60,14 @@ class App extends Component {
                 </Link>
               </Menu.Item>
               <Menu.Item key="2">角色配置</Menu.Item>
+            </SubMenu>
+            <SubMenu key="sub2" title={<span><Icon type="appstore" />文章管理</span>}>
+              <Menu.Item key="3">
+                <Link to={'/articles'}>
+                  文章列表
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="4">主题管理</Menu.Item>
             </SubMenu>
           </Menu>
         </aside>
