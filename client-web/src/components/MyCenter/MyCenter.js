@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link, IndexLink, browserHistory  } from 'react-router'
+import MycPost from './MycPost'
+
 
 export default class MyCenter extends Component {
 
@@ -10,11 +12,22 @@ export default class MyCenter extends Component {
       other:'',
       articleActive: 'myc-active',
       messageActive: '',
-      postActive: ''
+      postActive: '',
+      isPost: false
     };
     this.showArticle = this.showArticle.bind(this);
     this.showMessage = this.showMessage.bind(this);
     this.showPost = this.showPost.bind(this);
+  }
+
+  componentDidMount() {
+
+  }
+
+  componentDidUpdate (prevProps) {
+    if(prevProps.body !== this.props.body) {
+      this.editor.setValue(this.props.body);
+    }
   }
 
   showArticle() {
@@ -23,7 +36,8 @@ export default class MyCenter extends Component {
         isArticles: true,
         articleActive: 'myc-active',
         messageActive: '',
-        postActive: ''
+        postActive: '',
+        isPost: false
       }
     )
   }
@@ -47,7 +61,8 @@ export default class MyCenter extends Component {
         other:this.messages(),
         articleActive: '',
         messageActive: 'myc-active',
-        postActive: ''
+        postActive: '',
+        isPost: false
       }
     )
     console.log("this.state.other");
@@ -69,12 +84,15 @@ export default class MyCenter extends Component {
     this.setState(
       {
         isArticles: false,
-        other:this.post(),
+        other:<MycPost/>,
         articleActive: '',
         messageActive: '',
-        postActive: 'myc-active'
+        postActive: 'myc-active',
+        isPost: true
       }
     )
+
+
   }
 
   post(){
