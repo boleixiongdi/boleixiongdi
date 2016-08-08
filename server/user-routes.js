@@ -9,6 +9,13 @@ var app = module.exports = express.Router();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+var mysql = require('mysql');
+var utils = require('./utils/utils');
+var mysqlConf = require('./conf/mysqldb');
+// 使用连接池，提升性能
+var pool  = mysql.createPool(utils.extend({}, mysqlConf.mysql));
+var userSql = require('./dao/userSqlMapping');
+
 // XXX: This should be a database of users :).
 var users = [{
   id: 1,
@@ -47,6 +54,25 @@ function getUserScheme(req) {
 }
 
 app.post('/users', function(req, res) {
+
+
+  pool.getConnection(function(err, connection) {
+    //var params = req.query || req.params;
+    params = req.body;
+    console.log(req.body);
+    console.log(req.body.phone);
+    var password = cryptoUtil.encrypt(params.password,cryptoUtil.secret);
+    var param = [params.name,params.phone,password,params.email,params.id];
+    console.log(param);
+    //update user set name=?, phone=?, password=?, email=? where id=?
+    connection.query(userSql.update,param, function(err, result) {
+        connection.query(userSql.queryByPhone,[username], function(err, users) {
+          console.log("当前用户信息--------------",users[0]);
+          res.render("user/edit",{title:"用户中心",users:users,user:username,active:"user"});
+          connection.release();
+        });
+    });
+  });
 
   var userScheme = getUserScheme(req);
 
