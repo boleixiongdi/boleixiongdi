@@ -1,12 +1,12 @@
-import webpack from 'webpack';
-import path from 'path';
+var path = require('path')
+var webpack = require('webpack')
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('development'),
   __DEV__: true
 };
 
-export default {
+module.exports =  {
   debug: true,
   devtool: 'cheap-module-eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
   noInfo: true, // set to false to see a list of every file being bundled.
