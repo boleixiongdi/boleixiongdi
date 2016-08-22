@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import * as ItemsActions from '../../actions/actions'
 import Search from '../Search/Search'
+import { Link　} from 'react-router'
 
 import _ from 'lodash';
 import { VelocityTransitionGroup, velocityHelpers } from 'velocity-react'
@@ -104,8 +105,10 @@ class Home extends Component {
         <div key={item.i}>
           <div className="article">
             <div className='article-abstrat'>
-              <p>文章标题{item.i}</p>
-              <p>这是一片优秀的文章{item.i}</p>
+              <Link to={`/article`}>
+                <p>文章标题{item.i}</p>
+                <p>这是一片优秀的文章{item.i}</p>
+              </Link>
             </div>
             <div className="article-foot">
               <span className="green"></span><span>雷继文</span>

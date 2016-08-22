@@ -8,6 +8,7 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import AboutUs from './components/AboutUs/AboutUs'
 import MyCenter from './components/MyCenter/MyCenter'
+import Article from './components/Article/Article'
 
 const isAuth= (nextState, replace) => {
     console.info('routerenter', nextState)
@@ -25,6 +26,7 @@ const routes = (
     <Route path="/register" component={Register}/>
     <Route path="/about" component={AboutUs}/>
     <Route onEnter={isAuth} path="/mycenter" component={MyCenter}/>
+    <Route path="/article" component={Article}/>
   </Route>
 )
 
