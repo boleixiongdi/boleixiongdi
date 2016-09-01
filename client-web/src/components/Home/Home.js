@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import * as ItemsActions from '../../actions/actions'
 import Search from '../Search/Search'
 import { Link　} from 'react-router'
+import QueueAnim from 'rc-queue-anim';
 
 import _ from 'lodash';
 import { VelocityTransitionGroup, velocityHelpers } from 'velocity-react'
@@ -106,7 +107,7 @@ class Home extends Component {
           <div className="article">
             <div className='article-abstrat'>
               <Link to={`/article`}>
-                <p>文章标题{item.i}</p>
+                <p>不要用以为我要上你的眼神看着我{item.i}</p>
                 <p>这是一片优秀的文章{item.i}</p>
               </Link>
             </div>
@@ -153,10 +154,93 @@ class Home extends Component {
     return (
         <div className ='content'>
           <Search />
-          <VelocityTransitionGroup component="div" className="flex-1"
-            style={groupStyle} enter={enterAnimation} leave={leaveAnimation}>
-            {rows}
-          </VelocityTransitionGroup>
+          <QueueAnim delay={500}>
+            <div key="a">
+              <div className="article">
+                <div className='article-abstrat'>
+                  <Link to={`/article`}>
+                    <p>不要用以为我要上你的眼神看着我</p>
+                    <p>这是一片优秀的文章</p>
+                  </Link>
+                </div>
+                <div className="article-foot">
+                  <span className="green"></span><span>雷继文</span>
+                  <span className="green">&nbsp; post at &nbsp;</span><span>2016-07-26 15:55:54</span>
+                </div>
+              </div>
+            </div>
+            <div key="b">
+              <div className="article">
+                <div className='article-abstrat'>
+                  <Link to={`/article`}>
+                    <p>我习惯一个劲的让自己出丑直到习以为常</p>
+                    <p>这是一片优秀的文章</p>
+                  </Link>
+                </div>
+                <div className="article-foot">
+                  <span className="green"></span><span>雷继文</span>
+                  <span className="green">&nbsp; post at &nbsp;</span><span>2016-07-26 15:55:54</span>
+                </div>
+              </div>
+            </div>
+            <div key="c">
+              <div className="article">
+                <div className='article-abstrat'>
+                  <Link to={`/article`}>
+                    <p>你的智商远比你想象的要低</p>
+                    <p>这是一片优秀的文章</p>
+                  </Link>
+                </div>
+                <div className="article-foot">
+                  <span className="green"></span><span>雷继文</span>
+                  <span className="green">&nbsp; post at &nbsp;</span><span>2016-07-26 15:55:54</span>
+                </div>
+              </div>
+            </div>
+            <div key="d">
+              <div className="article">
+                <div className='article-abstrat'>
+                  <Link to={`/article`}>
+                    <p>我的优秀出乎你的意料</p>
+                    <p>这是一片优秀的文章</p>
+                  </Link>
+                </div>
+                <div className="article-foot">
+                  <span className="green"></span><span>雷继文</span>
+                  <span className="green">&nbsp; post at &nbsp;</span><span>2016-07-26 15:55:54</span>
+                </div>
+              </div>
+            </div>
+            <div key="e">
+              <div className="article">
+                <div className='article-abstrat'>
+                  <Link to={`/article`}>
+                    <p>文章标题</p>
+                    <p>这是一片优秀的文章</p>
+                  </Link>
+                </div>
+                <div className="article-foot">
+                  <span className="green"></span><span>雷继文</span>
+                  <span className="green">&nbsp; post at &nbsp;</span><span>2016-07-26 15:55:54</span>
+                </div>
+              </div>
+            </div>
+            <div key="f">
+              <div className="article">
+                <div className='article-abstrat'>
+                  <Link to={`/article`}>
+                    <p>文章标题</p>
+                    <p>这是一片优秀的文章</p>
+                  </Link>
+                </div>
+                <div className="article-foot">
+                  <span className="green"></span><span>雷继文</span>
+                  <span className="green">&nbsp; post at &nbsp;</span><span>2016-07-26 15:55:54</span>
+                </div>
+              </div>
+            </div>
+          </QueueAnim>
+
         </div>
     );
   }
