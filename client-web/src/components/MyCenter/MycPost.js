@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { Link, IndexLink, browserHistory  } from 'react-router'
-import Simditor from 'simditor'
 
 export default class MycPost extends Component {
 

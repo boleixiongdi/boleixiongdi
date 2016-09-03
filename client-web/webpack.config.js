@@ -33,5 +33,10 @@ module.exports = {
       loaders: [ 'style', 'raw' ],
       include: __dirname
     }]
+  },
+  resolve: {
+    alias: {
+        redux: "redux/dist/redux.min.js"
+    }
   }
 }
